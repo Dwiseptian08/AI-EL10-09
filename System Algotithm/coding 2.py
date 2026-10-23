@@ -1,40 +1,27 @@
-# Memeriksa apakah tujuan dapat dicapai
-    if distances[destination] == float("inf"):
-        return None, float("inf")
+# Data yang akan dicari
+data = [10, 20, 30, 40, 50, 60, 70]
 
-    # Menyusun jalur dari tujuan ke titik awal
-    path = []
-    current = destination
+print("=== SEARCH ALGORITHM ===")
+print("Data:", data)
 
-    while current is not None:
-        path.append(current)
-        current = previous[current]
+target = int(input("Masukkan angka yang dicari: "))
 
-    path.reverse()
+# Linear Search
+result_linear = linear_search(data, target)
 
-    return path, distances[destination]
+# Binary Search
+result_binary = binary_search(data, target)
 
+print("\n=== HASIL PENCARIAN ===")
 
-# Program utama
-print("=== SISTEM PENCARIAN JALUR TERPENDEK ===")
-print("Lokasi tersedia:", ", ".join(graph.keys()))
-
-start = input("Masukkan lokasi awal: ").upper()
-destination = input("Masukkan lokasi tujuan: ").upper()
-
-if start not in graph or destination not in graph:
-    print("Error: Lokasi tidak tersedia.")
-
+if result_linear != -1:
+    print("Linear Search: Data ditemukan pada indeks",
+          result_linear)
 else:
-    path, distance = shortest_path(
-        graph, start, destination
-    )
+    print("Linear Search: Data tidak ditemukan")
 
-    if path is None:
-        print("Tidak ditemukan jalur menuju tujuan.")
-
-    else:
-        print("\n=== HASIL PERHITUNGAN ===")
-        print("Jalur terpendek:", " -> ".join(path))
-        print("Total jarak:", distance)
-        print("Sistem selesai.")
+if result_binary != -1:
+    print("Binary Search: Data ditemukan pada indeks",
+          result_binary)
+else:
+    print("Binary Search: Data tidak ditemukan")
