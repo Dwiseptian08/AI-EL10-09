@@ -35,6 +35,7 @@ Persyaratan untuk menjalankan program:
 6. Tunggu hingga seluruh agen menyelesaikan tugasnya dan laporan ditampilkan.
 
 ## 4. Result
+![Uploading image.png…]()
 
 Program menghasilkan laporan berdasarkan topik yang dimasukkan oleh pengguna.
 
