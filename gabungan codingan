@@ -1,0 +1,86 @@
+class ResearcherAgent:
+    def run(self, topic):
+        print("\n[Researcher Agent] Mengumpulkan informasi...")
+
+        information = [
+            f"Topik yang dibahas adalah {topic}.",
+            f"{topic} memiliki aspek teknis yang perlu dipelajari.",
+            f"{topic} dapat dianalisis berdasarkan manfaat dan tantangannya."
+        ]
+
+        return information
+
+
+class AnalystAgent:
+    def run(self, information):
+        print("[Analyst Agent] Menganalisis informasi...")
+
+        analysis = {
+            "jumlah_informasi": len(information),
+            "hasil": "Informasi berhasil dikumpulkan dan siap disusun.",
+            "kesimpulan": (
+                "Topik perlu dipahami dari konsep dasar, "
+                "manfaat, dan tantangan penerapannya."
+            )
+        }
+
+        return analysis
+
+
+class WriterAgent:
+    def run(self, topic, information, analysis):
+        print("[Writer Agent] Membuat laporan...")
+
+        report = f"""
+========== HASIL LAPORAN ==========
+
+Topik: {topic}
+
+INFORMASI:
+"""
+
+        for i, item in enumerate(information, start=1):
+            report += f"{i}. {item}\n"
+
+        report += f"""
+ANALISIS:
+Jumlah informasi: {analysis['jumlah_informasi']}
+Hasil: {analysis['hasil']}
+
+KESIMPULAN:
+{analysis['kesimpulan']}
+===================================
+"""
+        return report
+
+
+class CoordinatorAgent:
+    def __init__(self):
+        self.researcher = ResearcherAgent()
+        self.analyst = AnalystAgent()
+        self.writer = WriterAgent()
+
+    def run_system(self, topic):
+        print("=== MULTI-AGENT SYSTEM DIMULAI ===")
+
+        # Tahap 1: Mengumpulkan informasi
+        information = self.researcher.run(topic)
+
+        # Tahap 2: Menganalisis informasi
+        analysis = self.analyst.run(information)
+
+        # Tahap 3: Membuat laporan
+        report = self.writer.run(
+            topic, information, analysis
+        )
+
+        print(report)
+        print("=== SEMUA AGENT SELESAI ===")
+
+
+# Program utama
+if __name__ == "__main__":
+    topic = input("Masukkan topik: ")
+
+    system = CoordinatorAgent()
+    system.run_system(topic)
