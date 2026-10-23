@@ -129,63 +129,67 @@ Program ini membantu pengguna memahami kemungkinan penyebab masalah berdasarkan 
 
 
 
-# System Algorithm: Shortest Path Using Dijkstra
+# Search Algorithm
 
 ## 1. Introduction
 
-System Algorithm merupakan implementasi algoritma untuk menyelesaikan masalah secara sistematis melalui serangkaian langkah logis.
+Search Algorithm adalah algoritma yang digunakan untuk mencari data tertentu di dalam sekumpulan data. Program ini dibuat menggunakan bahasa pemrograman Python dan menerapkan dua metode pencarian, yaitu **Linear Search** dan **Binary Search**.
 
-Program ini menggunakan algoritma Dijkstra untuk mencari jalur terpendek antara dua lokasi pada sebuah graf berbobot.
+- **Linear Search:** Mencari data dengan memeriksa setiap elemen secara berurutan hingga data ditemukan.
+- **Binary Search:** Mencari data dengan membagi area pencarian menjadi dua bagian secara berulang. Algoritma ini membutuhkan data yang sudah terurut.
 
-Setiap lokasi direpresentasikan sebagai simpul (node), sedangkan hubungan antarlokasi direpresentasikan sebagai sisi (edge) yang memiliki nilai jarak.
-
-Algoritma Dijkstra bekerja dengan mencari jalur yang memiliki total bobot terkecil dari lokasi awal menuju lokasi tujuan.
+Program ini bertujuan untuk memahami cara kerja kedua algoritma pencarian serta mengetahui perbedaan metode pencarian data.
 
 ## 2. Requirement
 
-Persyaratan untuk menjalankan program:
-- Python 3.9 atau lebih baru.
-- Text editor atau IDE, seperti Visual Studio Code.
+Untuk menjalankan program ini, diperlukan:
+
+- Python 3.x
+- Text editor atau IDE, seperti Visual Studio Code atau PyCharm.
 - Terminal atau Command Prompt.
-- Menggunakan library bawaan Python `heapq` untuk mengelola antrean prioritas.
-- Tidak memerlukan instalasi library tambahan.
+
+**Dependencies:** Tidak memerlukan library tambahan karena program hanya menggunakan fitur bawaan Python.
 
 ## 3. How to Use
 
-1. Pastikan Python sudah terinstal.
-2. Simpan kode program dengan nama `system_algorithm.py`.
-3. Buka terminal pada folder tempat file disimpan.
-4. Jalankan program dengan perintah:
+Ikuti langkah-langkah berikut:
+
+1. Pastikan Python sudah terinstal di komputer.
+2. Simpan kode program dengan nama `search_algorithm.py`.
+3. Buka terminal atau Command Prompt pada folder tempat file disimpan.
+4. Jalankan program menggunakan perintah berikut:
 
    ```bash
-   python system_algorithm.py
+   python search_algorithm.py
    ```
 
-5. Masukkan lokasi awal dan lokasi tujuan.
-6. Gunakan lokasi yang tersedia, yaitu A, B, C, D, atau E.
-7. Program akan menghitung dan menampilkan jalur terpendek beserta total jaraknya.
+5. Program akan menampilkan daftar angka yang tersedia.
+6. Masukkan angka yang ingin dicari.
+7. Program akan menjalankan Linear Search dan Binary Search, kemudian menampilkan hasil pencarian beserta indeks data jika ditemukan.
+
+**Catatan:** Binary Search hanya dapat digunakan dengan benar jika data sudah terurut.
 
 ## 4. Result
 
-Program menghasilkan jalur dengan total bobot paling kecil berdasarkan graf yang telah ditentukan.
-
-Contoh input:
-
-```text
-Masukkan lokasi awal: A
-Masukkan lokasi tujuan: E
-```
+Program akan menampilkan hasil pencarian menggunakan kedua algoritma berdasarkan angka yang dimasukkan oleh pengguna.
 
 Contoh output:
 
 ```text
-HASIL PERHITUNGAN
+=== SEARCH ALGORITHM ===
+Data: [10, 20, 30, 40, 50, 60, 70]
+Masukkan angka yang dicari: 50
 
-Jalur terpendek: A -> C -> B -> D -> E
-Total jarak: 10
-Sistem selesai.
+=== HASIL PENCARIAN ===
+Linear Search: Data ditemukan pada indeks 4
+Binary Search: Data ditemukan pada indeks 4
 ```
 
-Hasil tersebut menunjukkan bahwa jalur A → C → B → D → E memiliki total jarak 10 satuan berdasarkan bobot pada graf.
+Jika angka yang dimasukkan tidak tersedia di dalam daftar, program akan menampilkan pesan bahwa data tidak ditemukan.
 
-Program ini dapat diterapkan sebagai dasar simulasi navigasi, pencarian rute, dan optimasi jalur. Algoritma Dijkstra mengasumsikan seluruh bobot jarak bernilai non-negatif.
+### Conclusion
+
+Program ini menunjukkan bahwa Linear Search melakukan pencarian secara berurutan, sedangkan Binary Search mempersempit area pencarian dengan membagi data menjadi dua bagian. Binary Search umumnya lebih efisien untuk data berukuran besar yang sudah terurut.
+
+
+asi navigasi, pencarian rute, dan optimasi jalur. Algoritma Dijkstra mengasumsikan seluruh bobot jarak bernilai non-negatif.
